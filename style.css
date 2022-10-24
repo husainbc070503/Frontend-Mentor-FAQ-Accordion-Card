@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Newsreader', serif;
+}
+
+/* COLORS */
+:root {
+    --violet: hsl(273, 75%, 66%);
+    --blue: hsl(240, 73%, 65%);
+    --v_d_g_b: hsl(180, 8%, 12%);
+    --d_g_b: hsl(199, 21%, 18%);
+    --l_g_b: hsl(0, 0%, 58%);
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--violet), var(--blue));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.faq-card {
+    width: 1100px;
+    min-height: 500px;
+    display: block;
+    background: #fffeee;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('images/bg-pattern-desktop.svg');
+    background-position: -400% 65%;
+    background-repeat: no-repeat;
+}
+
+.faq-card .left {
+    width: 50%;
+    float: left;
+}
+
+.right {
+    float: right;
+    width: 50%;
+    padding: 40px 0;
+}
+
+.left .box {
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-20%);
+    z-index: 100;
+}
+
+.left .women {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-45%);
+}
+
+.right .heading {
+    font-size: 34px;
+    margin: 20px 0;
+    color: var(--v_d_g_b);
+    font-weight: bold;
+}
+
+.right .accordion li {
+    list-style: none;
+    width: 90%;
+    border-radius: 8px;
+    padding: 15px;
+    border-bottom: 2px solid var(--l_g_b);
+    margin: 20px 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.right .accordion input[type="radio"] {
+    display: none;
+}
+
+.accordion label {
+    font-size: 18px;
+    color: var(--d_g_b);
+    letter-spacing: 0.8px;
+    cursor: pointer;
+}
+
+.accordion .fa-angle-down {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 16px;
+    color: orange;
+    font-weight: bold;
+    transition: transform 0.4s;
+}
+
+.accordion li .content {
+    font-size: 18px;
+    line-height: 1.6rem;
+    color: var(--l_g_b);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s, padding 0.4s;
+}
+
+.accordion input[type="radio"]:checked+label+.content {
+    max-height: 200px;
+    padding-top: 20px;
+}
+
+.accordion input[type="radio"]:checked+label,
+label:hover {
+    font-weight: bold;
+}
+
+.accordion input[type="radio"]:checked~.fa-angle-down {
+    transform: rotate(180deg);
+}
+
+.attribution {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: var(--v_d_g_b)
+}
+
+.attribution a {
+    text-decoration: none;
+    color: #f9f9f9;
+    transition: color 0.4s;
+}
+
+.attribution a:hover {
+    color: rgb(37, 47, 45);
+}
+
+@media only screen and (max-width:500px) {
+    body {
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .faq-card {
+        width: 85%;
+        background-image: url('images/bg-pattern-mobile.svg');
+        background-position: center 0;
+        border-radius: 20px;
+    }
+
+    .left,
+    .right {
+        float: none;
+        width: 100%;
+    }
+
+    .left .box {
+        width: 100px;
+        left: 30px;
+        top: -30px;
+    }
+
+    .left .women {
+        width: 240px;
+        left: 50%;
+        top: -18%;
+        transform: translateX(-50%);
+    }
+
+    .right .heading {
+        font-size: 30px;
+        margin-top: 90px;
+        text-align: center;
+    }
+
+    .right .accordion li {
+        margin: 16px auto;
+    }
+
+    .accordion label {
+        font-size: 12px;
+        padding: 8px 0;
+    }
+
+    .accordion li .content {
+        font-size: 15px;
+        line-height: 1.2rem;
+    }
+
+    .accordion .fa-angle-down {
+        font-size: 10px;
+        top: 18px;
+    }
+
+    .attribution {
+        font-size: 16px;
+        width: 70%;
+        line-height: 1.6rem;
+        text-align: center;
+    }
+}
